@@ -8,7 +8,14 @@ public class Musicians : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Loop")){
-            other.GetComponent<LoopController>().counter++;
+            if (other.GetComponent<LoopController>().fixer == false)
+            {
+                other.GetComponent<LoopController>().counter++;
+            }
+            else
+            {
+                other.GetComponent<LoopController>().counter--;
+            }
         }
     }
     private void OnTriggerExit(Collider other)

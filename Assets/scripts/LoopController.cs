@@ -5,29 +5,46 @@ using UnityEngine;
 public class LoopController : MonoBehaviour
 {
     private AudioSource source;
+    public bool fixer;
     public int counter;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
         counter = 0;
+        fixer = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (counter == 0)
+        if (fixer == false)
         {
-            source.mute = true;
+            if (counter < 0)
+            {
+                counter = 0;
+            }
+            else if (counter == 0)
+            {
+                source.mute = true;
+            }
+            else if (counter == 1)
+            {
+                source.mute = false;
+            }
+            else if (counter == 2)
+            {
+                source.mute = false;
+                fixer = true;
+            }
         }
-        else if (counter == 1)
+        if (fixer == true)
         {
-            source.mute= false;
+            if (counter == -2)
+            {
+                fixer = false;
+            }
         }
-        else if (counter == 2)
-        {
-            source.mute= false;
-            //poner algo mas para fijar el loop
-        }
+        
     }
 }
