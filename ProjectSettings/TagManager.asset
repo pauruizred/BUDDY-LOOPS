@@ -21,6 +21,7 @@ TagManager:
   - CoreStarElement
   - Reward
   - objectiveTriangle
+  - Loop
   layers:
   - Default
   - TransparentFX
