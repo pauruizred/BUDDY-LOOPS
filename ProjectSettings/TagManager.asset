@@ -22,6 +22,7 @@ TagManager:
   - Reward
   - objectiveTriangle
   - Loop
+  - Center
   layers:
   - Default
   - TransparentFX

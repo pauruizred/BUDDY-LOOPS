@@ -7,15 +7,13 @@ public class Musicians : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Loop")){
-            if (other.GetComponent<LoopController>().fixer == false)
-            {
-                other.GetComponent<LoopController>().counter++;
-            }
-            else
-            {
-                other.GetComponent<LoopController>().counter--;
-            }
+        if (other.gameObject.CompareTag("Loop"))
+        {
+            other.GetComponent<LoopController>().counter++;
+        }
+        if (other.gameObject.CompareTag("Center"))
+        {
+            other.GetComponent<Center>().counter++;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -23,6 +21,10 @@ public class Musicians : MonoBehaviour
         if (other.gameObject.CompareTag("Loop"))
         {
             other.GetComponent<LoopController>().counter--;
+        }
+        if (other.gameObject.CompareTag("Center"))
+        {
+            other.GetComponent<Center>().counter--;
         }
     }
 }
