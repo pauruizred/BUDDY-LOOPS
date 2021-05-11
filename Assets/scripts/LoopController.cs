@@ -7,7 +7,7 @@ public class LoopController : MonoBehaviour
     private AudioSource source;
     private SpriteRenderer visuals;
     private ParticleSystem particles;
-
+    public GameObject pGO;
     public int counter;
 
     public bool fixer;
@@ -29,8 +29,6 @@ public class LoopController : MonoBehaviour
     void Update()
     {
         LoopManager();
-
-       
     }
 
     void LoopManager()
@@ -40,12 +38,12 @@ public class LoopController : MonoBehaviour
             if (counter == 0)
             {
                 source.mute = true;
-                particles.Stop();
+                pGO.SetActive(false);
             }
             else //(counter > 0)
             {
                 source.mute = false;
-                particles.Play();
+                pGO.SetActive(true);
             }
 
             if (counter < 2)
