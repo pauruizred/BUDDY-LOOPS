@@ -8,6 +8,7 @@ public class LoopController : MonoBehaviour
     private SpriteRenderer visuals;
     private ParticleSystem particles;
     public GameObject pGO;
+    public GameObject backgroundMask;
     public int counter;
 
     public bool fixer;
@@ -38,12 +39,16 @@ public class LoopController : MonoBehaviour
             if (counter == 0)
             {
                 source.mute = true;
-                pGO.SetActive(false);
+                //pGO.SetActive(false);
+                visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                backgroundMask.SetActive(false);
             }
             else //(counter > 0)
             {
                 source.mute = false;
-                pGO.SetActive(true);
+                visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                backgroundMask.SetActive(true);
+                //pGO.SetActive(true);
             }
 
             if (counter < 2)
@@ -54,7 +59,7 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == false))
             {
                 fixer = true;
-                visuals.color = Color.grey;
+                //visuals.color = Color.grey;
             }
 
         }
