@@ -8,6 +8,11 @@ public class LoopController : MonoBehaviour
     private SpriteRenderer visuals;
     private ParticleSystem particles;
     public GameObject pGO;
+
+    public float delayTime;
+    private float timer;
+
+    [HideInInspector]
     public int counter;
 
     public bool fixer;
@@ -23,12 +28,14 @@ public class LoopController : MonoBehaviour
         counter = 0;
         fixer = false;
         armer = false;
+
+        timer = 0;
     }
     
     // Update is called once per frame
     void Update()
     {
-        LoopManager();
+       LoopManager();
     }
 
     void LoopManager()
@@ -37,12 +44,20 @@ public class LoopController : MonoBehaviour
         {
             if (counter == 0)
             {
+                timer = 0;
+
                 source.mute = true;
                 pGO.SetActive(false);
             }
             else //(counter > 0)
             {
-                source.mute = false;
+                timer += Time.deltaTime;
+
+                if (timer > delayTime)
+                {
+                    source.mute = false;
+                }
+
                 pGO.SetActive(true);
             }
 

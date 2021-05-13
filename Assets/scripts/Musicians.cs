@@ -5,14 +5,16 @@ using UnityEngine;
 public class Musicians : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider other)
+    private /*IEnumerator*/ void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Loop"))
         {
+            //yield return new WaitForSeconds(1);
             other.GetComponent<LoopController>().counter++;
         }
         if (other.gameObject.CompareTag("Center"))
         {
+            //yield return new WaitForSeconds(1);
             other.GetComponent<Center>().counter++;
         }
     }
