@@ -9,8 +9,8 @@ public class LoopController : MonoBehaviour
     private ParticleSystem particles;
     public GameObject pGO;
 
-    public float delayTime;
-    private float timer;
+    public float maxVol;
+    public float fadeVelocity;
 
     [HideInInspector]
     public int counter;
@@ -28,37 +28,20 @@ public class LoopController : MonoBehaviour
         counter = 0;
         fixer = false;
         armer = false;
-
-        timer = 0;
     }
     
     // Update is called once per frame
     void Update()
     {
-       LoopManager();
-    }
-
-    void LoopManager()
-    {
         if (fixer == false)
         {
             if (counter == 0)
             {
-                timer = 0;
-
-                source.mute = true;
-                pGO.SetActive(false);
+                DeactivateLoop();
             }
             else //(counter > 0)
             {
-                timer += Time.deltaTime;
-
-                if (timer > delayTime)
-                {
-                    source.mute = false;
-                }
-
-                pGO.SetActive(true);
+                StartCoroutine("ActivateLoop");
             }
 
             if (counter < 2)
@@ -86,9 +69,36 @@ public class LoopController : MonoBehaviour
                 visuals.color = Color.white;
             }
         }
+    }
+    IEnumerator ActivateLoop()
+    {
+        pGO.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
+        {
+            source.volume += vol;
+            yield return new WaitForSeconds(0.1f);
+
+        }
+        /*if (source.volume < maxVol)
+        {
+            source.volume += Time.deltaTime/5;
+        }*/
+    }
+    void DeactivateLoop()
+    {
+        StopCoroutine("ActivateLoop");
+        source.volume = 0;
+        pGO.SetActive(false);
+    }
 
 
 
+
+    void LoopManager()
+    {
         /*if (fixer == false)
         {
             if (counter == 0)

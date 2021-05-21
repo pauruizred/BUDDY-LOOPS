@@ -1745,6 +1745,11 @@ PrefabInstance:
       propertyPath: delayTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2803384163564949732, guid: 24aca970da037c947a6b8144b7071702,
+        type: 3}
+      propertyPath: fadeVelocity
+      value: 0.0002
+      objectReference: {fileID: 0}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder

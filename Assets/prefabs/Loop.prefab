@@ -240,7 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pGO: {fileID: 2803384164080592993}
-  delayTime: 1
+  maxVol: 1
+  fadeVelocity: 0.002
   counter: 0
   fixer: 0
   armer: 0
