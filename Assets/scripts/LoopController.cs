@@ -11,8 +11,9 @@ public class LoopController : MonoBehaviour
 
     public float maxVol;
     public float fadeVelocity;
-
+    public GameObject backgroundMask;
     [HideInInspector]
+
     public int counter;
 
     public bool fixer;
@@ -24,6 +25,8 @@ public class LoopController : MonoBehaviour
         source = GetComponent<AudioSource>();
         visuals = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
+
+        backgroundMask.SetActive(false);
 
         counter = 0;
         fixer = false;
@@ -41,7 +44,7 @@ public class LoopController : MonoBehaviour
             }
             else //(counter > 0)
             {
-                StartCoroutine("ActivateLoop");
+                NewMethod();
             }
 
             if (counter < 2)
@@ -52,7 +55,7 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == false))
             {
                 fixer = true;
-                visuals.color = Color.grey;
+                //visuals.color = Color.grey;
             }
 
         }
@@ -70,9 +73,19 @@ public class LoopController : MonoBehaviour
             }
         }
     }
-    IEnumerator ActivateLoop()
+
+    private void NewMethod()
     {
-        pGO.SetActive(true);
+        StartCoroutine("FadeInLoop");
+
+
+        visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        backgroundMask.SetActive(true);
+    }
+
+    IEnumerator FadeInLoop()
+    {
+        //pGO.SetActive(true);
 
         yield return new WaitForSeconds(2);
 
@@ -87,11 +100,15 @@ public class LoopController : MonoBehaviour
             source.volume += Time.deltaTime/5;
         }*/
     }
-    void DeactivateLoop()
+
+
+    private void DeactivateLoop()
     {
-        StopCoroutine("ActivateLoop");
+        StopCoroutine("FadeInLoop");
+        visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         source.volume = 0;
-        pGO.SetActive(false);
+        backgroundMask.SetActive(false);
+        //pGO.SetActive(false);
     }
 
 
