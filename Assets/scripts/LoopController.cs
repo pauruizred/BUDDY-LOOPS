@@ -4,35 +4,47 @@ using UnityEngine;
 
 public class LoopController : MonoBehaviour
 {
+
+    // Audio
     private AudioSource source;
+    public float maxVol;
+    public float fadeVelocity;
+
+    // Visuals
     private SpriteRenderer visuals;
     private ParticleSystem particles;
     public GameObject pGO;
-
-    public float maxVol;
-    public float fadeVelocity;
     public GameObject backgroundMask;
+    private Color visualsColor;
+
+    // Utils
     [HideInInspector]
-
     public int counter;
-
     public bool fixer;
     public bool armer;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Audio
         source = GetComponent<AudioSource>();
+
+        // Visuals 
         visuals = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
-
         backgroundMask.SetActive(false);
+        GetComponent<Rotate>().enabled = false;
+        visuals.color = Color.red;
+        //ChangeOpacity(0f);
 
+        // Utils
         counter = 0;
         fixer = false;
         armer = false;
     }
+
     
+
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +56,7 @@ public class LoopController : MonoBehaviour
             }
             else //(counter > 0)
             {
-                NewMethod();
+                ActivateLoop();
             }
 
             if (counter < 2)
@@ -55,7 +67,8 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == false))
             {
                 fixer = true;
-                //visuals.color = Color.grey;
+                visuals.color = Color.white;
+                GetComponent<Rotate>().enabled = true;
             }
 
         }
@@ -69,32 +82,48 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == true))
             {
                 fixer = false;
-                visuals.color = Color.white;
+                visuals.color = Color.red;
+                GetComponent<Rotate>().enabled = false;
             }
         }
     }
 
-    private void NewMethod()
+    private void ActivateLoop()
     {
         StartCoroutine("FadeInLoop");
 
-
+        //pGO.SetActive(true);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
+
+    }
+
+    private void DeactivateLoop()
+    {
+        StopCoroutine("FadeInLoop");
+
+        //pGO.SetActive(false);
+        visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        source.volume = 0;
+        backgroundMask.SetActive(false);
+        //ChangeOpacity(0f);
+
     }
 
     IEnumerator FadeInLoop()
     {
-        //pGO.SetActive(true);
 
         yield return new WaitForSeconds(2);
 
         for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
         {
             source.volume += vol;
+            // ChangeOpacity(vol*255);
             yield return new WaitForSeconds(0.1f);
 
         }
+
+        // PREGUNTAR A RENÉ 
         /*if (source.volume < maxVol)
         {
             source.volume += Time.deltaTime/5;
@@ -102,16 +131,13 @@ public class LoopController : MonoBehaviour
     }
 
 
-    private void DeactivateLoop()
+    // Experimento para hacer fade in de visuals, no implementado de momento
+    private void ChangeOpacity(float newOpacity)
     {
-        StopCoroutine("FadeInLoop");
-        visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        source.volume = 0;
-        backgroundMask.SetActive(false);
-        //pGO.SetActive(false);
+        Color temp = visuals.color;
+        temp.a = newOpacity;
+        visuals.color = temp;
     }
-
-
 
 
     void LoopManager()
