@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8458575880099466812}
   - component: {fileID: -368444437468321271}
   m_Layer: 0
-  m_Name: Vinyl line
+  m_Name: Vinyl line 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,8 +94,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9056604, g: 0.43430984, b: 0.059807744, a: 1}
-      key1: {r: 0.9528302, g: 0.32360268, b: 0.3359898, a: 1}
+      key0: {r: 0.09651142, g: 0.8679245, b: 0, a: 1}
+      key1: {r: 0.29804197, g: 0.4009093, b: 0.8679245, a: 1}
       key2: {r: 0.9528302, g: 0.32360268, b: 0.3359898, a: 0}
       key3: {r: 0.34262532, g: 0.29334283, b: 0.9716981, a: 0}
       key4: {r: 0.068262726, g: 0.17170459, b: 0.5566038, a: 0}

@@ -11,6 +11,7 @@ public class Vinyl : MonoBehaviour
     public int numberOfLines;
     public float centerStickerRadius;
     public GameObject vinylLinePrefab;
+    private List<GameObject> vinylLines;
     
 
 
@@ -19,7 +20,7 @@ public class Vinyl : MonoBehaviour
     {
         center = transform.position;
         radius = 70;
-        InstantiateLines();
+        vinylLines = new List<GameObject>();
         InstantiateLines();
     }
 
@@ -34,8 +35,16 @@ public class Vinyl : MonoBehaviour
     {
         for (int i = 1; i <= numberOfLines; i++)
         {
+            Debug.Log(i);
             float xPosOffset = i * (radius / numberOfLines) + centerStickerRadius;
-            Instantiate(vinylLinePrefab, center + new Vector3(xPosOffset, 0, 0), Quaternion.identity);
+            GameObject vinylLine = Instantiate(vinylLinePrefab, center + new Vector3(xPosOffset, 0, 0), Quaternion.identity);
+            vinylLines.Add(vinylLine);
+        }
+    }
+    public void SetEmission(bool turnon)
+    {
+        foreach (GameObject vinylLine in vinylLines){
+            vinylLine.GetComponent<TrailRenderer>().emitting = turnon;
         }
     }
 }

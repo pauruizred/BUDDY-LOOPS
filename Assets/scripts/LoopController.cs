@@ -9,6 +9,7 @@ public class LoopController : MonoBehaviour
     private AudioSource source;
     public float maxVol;
     public float fadeVelocity;
+    public float startDelay;
 
     // Visuals
     private SpriteRenderer visuals;
@@ -113,7 +114,7 @@ public class LoopController : MonoBehaviour
     IEnumerator FadeInLoop()
     {
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(startDelay);
 
         for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
         {
