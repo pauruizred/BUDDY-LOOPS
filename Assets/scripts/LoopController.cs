@@ -93,7 +93,7 @@ public class LoopController : MonoBehaviour
     {
         StartCoroutine("FadeInLoop");
 
-        //pGO.SetActive(true);
+        pGO.SetActive(true);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
 
@@ -103,7 +103,7 @@ public class LoopController : MonoBehaviour
     {
         StopCoroutine("FadeInLoop");
 
-        //pGO.SetActive(false);
+        pGO.SetActive(false);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         source.volume = 0;
         backgroundMask.SetActive(false);

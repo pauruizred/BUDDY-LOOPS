@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  waitTime: 5
+  waitTime: 10
   nextScene: 0
   delayEnding: 5
   linePrefab: {fileID: 7861892084508434715, guid: cb151452bcc4d2e429c91b1b014ff652,
