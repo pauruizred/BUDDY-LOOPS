@@ -105,7 +105,7 @@ public class LoopController : MonoBehaviour
 
         pGO.SetActive(false);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        source.volume = 0;
+        StartCoroutine("FadeOutLoop");
         backgroundMask.SetActive(false);
         //ChangeOpacity(0f);
 
@@ -116,19 +116,36 @@ public class LoopController : MonoBehaviour
 
         yield return new WaitForSeconds(startDelay);
 
-        for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
+        while (source.volume < maxVol){
+            source.volume += Time.deltaTime/10;
+        }
+
+        /*for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
         {
             source.volume += vol;
             // ChangeOpacity(vol*255);
             yield return new WaitForSeconds(0.1f);
 
+        }*/
+
+    }
+
+        IEnumerator FadeOutLoop()
+    {
+
+        yield return new WaitForSeconds(startDelay);
+        
+        /*for (float vol = 1; vol > 0; vol -= fadeVelocity)
+        {
+            source.volume -= vol;
+            // ChangeOpacity(vol*255);
+            yield return new WaitForSeconds(0.1f);
+
+        }*/
+        while (source.volume >= 0){
+            source.volume -= Time.deltaTime/10;
         }
 
-        // PREGUNTAR A RENÉ 
-        /*if (source.volume < maxVol)
-        {
-            source.volume += Time.deltaTime/5;
-        }*/
     }
 
 
