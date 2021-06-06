@@ -29,10 +29,13 @@ public class Center : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((counter == 2) && (Time.timeSinceLevelLoad > waitTime)) //&& (endLevelCalled == false))
+        if ((counter == 2) && (Time.timeSinceLevelLoad > waitTime))
         {
-            StartCoroutine("EndLevel");
-            endLevelCalled = true;
+            if (endLevelCalled == false){
+                endLevelCalled = true;
+                StartCoroutine("EndLevel");
+            }
+                
         }
         else
         {
@@ -47,14 +50,18 @@ public class Center : MonoBehaviour
     }
     IEnumerator EndLevel()
     {
+        //Debug.Log("EndLevel");
         endingline.GetComponent<TrailRenderer>().emitting = true;
-        endingline.GetComponent<TrailRenderer>().time = 5;
+        endingline.GetComponent<TrailRenderer>().time = delayEnding;
         yield return new WaitForSeconds(delayEnding);
         noTurnBack = true;
+        //Debug.Log("no turn back true");
         endingline.GetComponent<TrailRenderer>().emitting = false;
+        //Debug.Log("prefinish");
         FindObjectOfType<LoopsMaster>().Finish();
+        //Debug.Log("post finish");
         FindObjectOfType<Vinyl>().SetEmission(false);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(10);
         SceneManager.LoadScene(nextScene);
     }
 }

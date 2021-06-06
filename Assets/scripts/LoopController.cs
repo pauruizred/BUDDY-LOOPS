@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LoopController : MonoBehaviour
 {
-
     // Audio
     private AudioSource source;
     public float maxVol;
@@ -28,6 +27,7 @@ public class LoopController : MonoBehaviour
     void Start()
     {
         gameObject.GetComponentInParent<LoopsMaster>().loops.Add(this);
+
         // Audio
         source = GetComponent<AudioSource>();
         source.volume = 0;
@@ -42,9 +42,7 @@ public class LoopController : MonoBehaviour
         // Utils
         counter = 0;
         fixer = false;
-        armer = false;
-
-        
+        armer = false;        
     }
 
     
@@ -106,7 +104,6 @@ public class LoopController : MonoBehaviour
     public void DeactivateLoop()
     {
         StopCoroutine("FadeInLoop");
-        //source.volume = 0;
         StartCoroutine("FadeOutLoop");
 
         pGO.SetActive(false);
@@ -145,7 +142,7 @@ public class LoopController : MonoBehaviour
 
         }*/
         while (source.volume >= 0){
-            source.volume -= Time.deltaTime*fadeVelocity;
+            source.volume -= Time.deltaTime * fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
 

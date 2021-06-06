@@ -845,8 +845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c1581fc720e418da389e628c135c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loops:
-  - {fileID: 0}
+  finalFadeVelocity: 0.05
+  loops: []
 --- !u!4 &1296125560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
@@ -1841,7 +1841,7 @@ PrefabInstance:
     - target: {fileID: 2803384163564949732, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: fadeVelocity
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
