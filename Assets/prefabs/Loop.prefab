@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxVol: 1
-  fadeVelocity: 0.002
+  fadeVelocity: 0.1
   startDelay: 1
   pGO: {fileID: 2803384164080592993}
   backgroundMask: {fileID: 97238830}

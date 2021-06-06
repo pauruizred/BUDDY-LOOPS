@@ -804,6 +804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1294945315}
+  - component: {fileID: 1294945316}
   m_Layer: 0
   m_Name: Loops
   m_TagString: Untagged
@@ -832,6 +833,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1294945316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294945314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1581fc720e418da389e628c135c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loops:
+  - {fileID: 0}
 --- !u!4 &1296125560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
@@ -1557,7 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  waitTime: 30
+  waitTime: 10
   nextScene: 1
   delayEnding: 5
   linePrefab: {fileID: 7861892084508434715, guid: a0d9f8ece4e074b4ba2be9fbecee8d15,
@@ -1826,7 +1841,7 @@ PrefabInstance:
     - target: {fileID: 2803384163564949732, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: fadeVelocity
-      value: 0.0002
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}

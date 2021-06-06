@@ -27,9 +27,10 @@ public class LoopController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponentInParent<LoopsMaster>().loops.Add(this);
         // Audio
         source = GetComponent<AudioSource>();
-
+        source.volume = 0;
         // Visuals 
         visuals = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
@@ -42,6 +43,8 @@ public class LoopController : MonoBehaviour
         counter = 0;
         fixer = false;
         armer = false;
+
+        
     }
 
     
@@ -91,6 +94,7 @@ public class LoopController : MonoBehaviour
 
     private void ActivateLoop()
     {
+        StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
 
         pGO.SetActive(true);
@@ -99,13 +103,14 @@ public class LoopController : MonoBehaviour
 
     }
 
-    private void DeactivateLoop()
+    public void DeactivateLoop()
     {
         StopCoroutine("FadeInLoop");
+        //source.volume = 0;
+        StartCoroutine("FadeOutLoop");
 
         pGO.SetActive(false);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        StartCoroutine("FadeOutLoop");
         backgroundMask.SetActive(false);
         //ChangeOpacity(0f);
 
@@ -113,11 +118,11 @@ public class LoopController : MonoBehaviour
 
     IEnumerator FadeInLoop()
     {
-
         yield return new WaitForSeconds(startDelay);
 
         while (source.volume < maxVol){
-            source.volume += Time.deltaTime/10;
+            source.volume += Time.deltaTime * fadeVelocity;
+            yield return new WaitForSeconds(0.1f);
         }
 
         /*for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
@@ -130,11 +135,8 @@ public class LoopController : MonoBehaviour
 
     }
 
-        IEnumerator FadeOutLoop()
+    IEnumerator FadeOutLoop()
     {
-
-        yield return new WaitForSeconds(startDelay);
-        
         /*for (float vol = 1; vol > 0; vol -= fadeVelocity)
         {
             source.volume -= vol;
@@ -143,7 +145,8 @@ public class LoopController : MonoBehaviour
 
         }*/
         while (source.volume >= 0){
-            source.volume -= Time.deltaTime/10;
+            source.volume -= Time.deltaTime*fadeVelocity;
+            yield return new WaitForSeconds(0.1f);
         }
 
     }

@@ -51,8 +51,8 @@ public class Center : MonoBehaviour
         endingline.GetComponent<TrailRenderer>().time = 5;
         yield return new WaitForSeconds(delayEnding);
         noTurnBack = true;
-        //endingline.GetComponent<TrailRenderer>().emitting = false;
-        
+        endingline.GetComponent<TrailRenderer>().emitting = false;
+        FindObjectOfType<LoopsMaster>().Finish();
         FindObjectOfType<Vinyl>().SetEmission(false);
         yield return new WaitForSeconds(6);
         SceneManager.LoadScene(nextScene);
