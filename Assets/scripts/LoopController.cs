@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LoopController : MonoBehaviour
 {
-
     // Audio
     private AudioSource source;
     public float maxVol;
@@ -27,9 +26,11 @@ public class LoopController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponentInParent<LoopsMaster>().loops.Add(this);
+
         // Audio
         source = GetComponent<AudioSource>();
-
+        source.volume = 0;
         // Visuals 
         visuals = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
@@ -41,7 +42,7 @@ public class LoopController : MonoBehaviour
         // Utils
         counter = 0;
         fixer = false;
-        armer = false;
+        armer = false;        
     }
 
     
@@ -91,21 +92,22 @@ public class LoopController : MonoBehaviour
 
     private void ActivateLoop()
     {
+        StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
 
-        //pGO.SetActive(true);
+        pGO.SetActive(true);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
 
     }
 
-    private void DeactivateLoop()
+    public void DeactivateLoop()
     {
         StopCoroutine("FadeInLoop");
+        StartCoroutine("FadeOutLoop");
 
-        //pGO.SetActive(false);
+        pGO.SetActive(false);
         visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        source.volume = 0;
         backgroundMask.SetActive(false);
         //ChangeOpacity(0f);
 
@@ -113,22 +115,37 @@ public class LoopController : MonoBehaviour
 
     IEnumerator FadeInLoop()
     {
-
         yield return new WaitForSeconds(startDelay);
 
-        for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
+        while (source.volume < maxVol){
+            source.volume += Time.deltaTime * fadeVelocity;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        /*for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
         {
             source.volume += vol;
             // ChangeOpacity(vol*255);
             yield return new WaitForSeconds(0.1f);
 
+        }*/
+
+    }
+
+    IEnumerator FadeOutLoop()
+    {
+        /*for (float vol = 1; vol > 0; vol -= fadeVelocity)
+        {
+            source.volume -= vol;
+            // ChangeOpacity(vol*255);
+            yield return new WaitForSeconds(0.1f);
+
+        }*/
+        while (source.volume >= 0){
+            source.volume -= Time.deltaTime * fadeVelocity;
+            yield return new WaitForSeconds(0.1f);
         }
 
-        // PREGUNTAR A RENÉ 
-        /*if (source.volume < maxVol)
-        {
-            source.volume += Time.deltaTime/5;
-        }*/
     }
 
 
