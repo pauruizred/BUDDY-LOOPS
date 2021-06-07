@@ -12,6 +12,8 @@ public class LoopController : MonoBehaviour
 
     // Visuals
     private SpriteRenderer visuals;
+    public Gradient grad1;
+    public Gradient grad2;
     //public ParticleSystem particles;
     public GameObject backgroundMask;
     private Color visualsColor;
@@ -25,6 +27,8 @@ public class LoopController : MonoBehaviour
     public bool armer;
     public float fixingTime;
     public bool canRipple;
+    public bool loopActivated;
+
 
     // Other game objects
     private Vinyl vinyl;
@@ -41,12 +45,14 @@ public class LoopController : MonoBehaviour
         source = GetComponent<AudioSource>();
         source.volume = 0;
         // Visuals 
-        visuals = GetComponentInChildren<SpriteRenderer>();
+        //visuals = GetComponentInChildren<SpriteRenderer>();
         pGO = this.transform.Find("Continuous ripple").GetComponentInChildren<ParticleSystem>();
+        var col = pGO.colorOverLifetime;
+        col.color = grad1;
         oneShotpGO = this.transform.Find("One shot ripple").GetComponentInChildren<ParticleSystem>();
         backgroundMask.SetActive(false);
         GetComponent<Rotate>().enabled = false;
-        visuals.color = Color.red;
+        //visuals.color = Color.red;
         //ChangeOpacity(0f);
 
         // Utils
@@ -57,6 +63,7 @@ public class LoopController : MonoBehaviour
 
         // others
         vinyl = FindObjectOfType<Vinyl>();
+        loopActivated=false;
 
         if (!oneShotpGO.isPlaying) oneShotpGO.Play();
     }
@@ -70,14 +77,18 @@ public class LoopController : MonoBehaviour
         if (fixer == false)
         {
             if (counter == 0)
-            {
-                
-                DeactivateLoop();
+            {            
+                if (loopActivated == true){
+                    loopActivated=false;
+                    DeactivateLoop();
+                }              
             }
             else //(counter > 0)
             {
-                
-                ActivateLoop();
+                if (loopActivated == false){
+                    loopActivated=true;
+                    ActivateLoop();
+                }          
             }
 
             if (counter < 2)
@@ -88,8 +99,10 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == false))
             {
                 fixer = true;
-                visuals.color = Color.white;
-                GetComponent<Rotate>().enabled = true;
+                //GetComponent<Rotate>().enabled = true;    
+                var col = pGO.colorOverLifetime;
+                col.color = grad2;
+
                 Debug.Log(transform.position);
                 Ripple();
             }
@@ -106,8 +119,8 @@ public class LoopController : MonoBehaviour
             if ((counter == 2) && (armer == true))
             {
                 fixer = false;
-                visuals.color = Color.red;
-                GetComponent<Rotate>().enabled = false;
+                var col = pGO.colorOverLifetime;
+                col.color = grad1;
                 canRipple = true;
             }
         }
@@ -120,7 +133,7 @@ public class LoopController : MonoBehaviour
         StartCoroutine("FadeInLoop");
         
         if (!pGO.isPlaying) pGO.Play();
-        visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        //visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
 
     }
@@ -131,7 +144,7 @@ public class LoopController : MonoBehaviour
         StartCoroutine("FadeOutLoop");
 
         if (pGO.isPlaying) pGO.Stop();
-        visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        //visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         backgroundMask.SetActive(false);
         //ChangeOpacity(0f);
 
@@ -143,31 +156,16 @@ public class LoopController : MonoBehaviour
         yield return new WaitForSeconds(startDelay);
 
         while (source.volume < maxVol) {
-            source.volume += Time.deltaTime * fadeVelocity;
+            source.volume += fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
-
-        /*for (float vol = 0f; vol < maxVol; vol += fadeVelocity)
-        {
-            source.volume += vol;
-            // ChangeOpacity(vol*255);
-            yield return new WaitForSeconds(0.1f);
-
-        }*/
 
     }
 
     IEnumerator FadeOutLoop()
     {
-        /*for (float vol = 1; vol > 0; vol -= fadeVelocity)
-        {
-            source.volume -= vol;
-            // ChangeOpacity(vol*255);
-            yield return new WaitForSeconds(0.1f);
-
-        }*/
         while (source.volume >= 0) {
-            source.volume -= Time.deltaTime * fadeVelocity;
+            source.volume -= fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -193,37 +191,3 @@ public class LoopController : MonoBehaviour
         canRipple = false;
     }
 }
-
-    /*void LoopManager()
-    {
-        /*if (fixer == false)
-        {
-            if (counter == 0)
-            {
-                source.mute = true;
-            }
-            else if (counter == 1)
-            {
-                source.mute = false;
-            }
-            else if (counter == 2)
-            {
-                source.mute = false;
-                fixer = true;
-                counter = 0;
-            }
-        }
-        else //(fixer == true)
-        {
-            if (counter == 0)
-            {
-                source.mute = true;
-            }
-
-            else if (counter == -2)
-            {
-                counter = 0;
-            }
-        }
-    }
-}*/

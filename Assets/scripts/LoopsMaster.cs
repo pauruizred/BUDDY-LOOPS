@@ -21,7 +21,7 @@ public class LoopsMaster : MonoBehaviour
     {
         foreach (LoopController loop in loops)
         {
-            loop.fadeVelocity = finalFadeVelocity * 10;
+            loop.fadeVelocity = finalFadeVelocity;
             if (loop.fixer == true)
             {
                 loop.DeactivateLoop();

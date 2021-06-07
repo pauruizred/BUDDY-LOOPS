@@ -8,6 +8,7 @@ public class Center : MonoBehaviour
     public int counter;
     public float waitTime;
     public int nextScene;
+    public int waitForNextScene;
 
     public float delayEnding;
     public GameObject linePrefab;
@@ -61,7 +62,7 @@ public class Center : MonoBehaviour
         FindObjectOfType<LoopsMaster>().Finish();
         //Debug.Log("post finish");
         FindObjectOfType<Vinyl>().SetEmission(false);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(waitForNextScene);
         SceneManager.LoadScene(nextScene);
     }
 }
