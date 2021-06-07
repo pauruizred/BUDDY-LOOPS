@@ -1944,6 +1944,11 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2803384164080593004, guid: 24aca970da037c947a6b8144b7071702,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24aca970da037c947a6b8144b7071702, type: 3}
 --- !u!1001 &6769992083713527169

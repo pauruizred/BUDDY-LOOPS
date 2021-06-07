@@ -12,10 +12,11 @@ public class LoopController : MonoBehaviour
 
     // Visuals
     private SpriteRenderer visuals;
-    private ParticleSystem particles;
-    public GameObject pGO;
+    //public ParticleSystem particles;
     public GameObject backgroundMask;
     private Color visualsColor;
+    public ParticleSystem pGO;
+    public ParticleSystem oneShotpGO;
 
     // Utils
     [HideInInspector]
@@ -41,7 +42,8 @@ public class LoopController : MonoBehaviour
         source.volume = 0;
         // Visuals 
         visuals = GetComponentInChildren<SpriteRenderer>();
-        particles = GetComponentInChildren<ParticleSystem>();
+        pGO = this.transform.Find("Continuous ripple").GetComponentInChildren<ParticleSystem>();
+        oneShotpGO = this.transform.Find("One shot ripple").GetComponentInChildren<ParticleSystem>();
         backgroundMask.SetActive(false);
         GetComponent<Rotate>().enabled = false;
         visuals.color = Color.red;
@@ -55,6 +57,8 @@ public class LoopController : MonoBehaviour
 
         // others
         vinyl = FindObjectOfType<Vinyl>();
+
+        if (!oneShotpGO.isPlaying) oneShotpGO.Play();
     }
 
 
@@ -111,10 +115,11 @@ public class LoopController : MonoBehaviour
 
     private void ActivateLoop()
     {
+       
         StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
-
-        pGO.SetActive(true);
+        
+        if (!pGO.isPlaying) pGO.Play();
         visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
 
@@ -125,7 +130,7 @@ public class LoopController : MonoBehaviour
         StopCoroutine("FadeInLoop");
         StartCoroutine("FadeOutLoop");
 
-        pGO.SetActive(false);
+        if (pGO.isPlaying) pGO.Stop();
         visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         backgroundMask.SetActive(false);
         //ChangeOpacity(0f);
@@ -134,6 +139,7 @@ public class LoopController : MonoBehaviour
 
     IEnumerator FadeInLoop()
     {
+        
         yield return new WaitForSeconds(startDelay);
 
         while (source.volume < maxVol) {
