@@ -50,6 +50,8 @@ public class LoopController : MonoBehaviour
         var col = pGO.colorOverLifetime;
         col.color = grad1;
         oneShotpGO = this.transform.Find("One shot ripple").GetComponentInChildren<ParticleSystem>();
+        var colOneShot = oneShotpGO.colorOverLifetime;
+        colOneShot.color = grad1;
         backgroundMask.SetActive(false);
         GetComponent<Rotate>().enabled = false;
         //visuals.color = Color.red;
