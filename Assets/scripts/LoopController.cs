@@ -22,10 +22,18 @@ public class LoopController : MonoBehaviour
     public int counter;
     public bool fixer;
     public bool armer;
+    public float fixingTime;
+    public bool canRipple;
+
+    // Other game objects
+    private Vinyl vinyl;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+
         gameObject.GetComponentInParent<LoopsMaster>().loops.Add(this);
 
         // Audio
@@ -42,22 +50,29 @@ public class LoopController : MonoBehaviour
         // Utils
         counter = 0;
         fixer = false;
-        armer = false;        
+        armer = false;
+        canRipple = true;
+
+        // others
+        vinyl = FindObjectOfType<Vinyl>();
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(Input.mousePosition);
         if (fixer == false)
         {
             if (counter == 0)
             {
+                
                 DeactivateLoop();
             }
             else //(counter > 0)
             {
+                
                 ActivateLoop();
             }
 
@@ -71,6 +86,8 @@ public class LoopController : MonoBehaviour
                 fixer = true;
                 visuals.color = Color.white;
                 GetComponent<Rotate>().enabled = true;
+                Debug.Log(transform.position);
+                Ripple();
             }
 
         }
@@ -79,6 +96,7 @@ public class LoopController : MonoBehaviour
             if (counter < 2)
             {
                 armer = true;
+
             }
 
             if ((counter == 2) && (armer == true))
@@ -86,6 +104,7 @@ public class LoopController : MonoBehaviour
                 fixer = false;
                 visuals.color = Color.red;
                 GetComponent<Rotate>().enabled = false;
+                canRipple = true;
             }
         }
     }
@@ -117,7 +136,7 @@ public class LoopController : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (source.volume < maxVol){
+        while (source.volume < maxVol) {
             source.volume += Time.deltaTime * fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
@@ -141,7 +160,7 @@ public class LoopController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
         }*/
-        while (source.volume >= 0){
+        while (source.volume >= 0) {
             source.volume -= Time.deltaTime * fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
@@ -157,8 +176,19 @@ public class LoopController : MonoBehaviour
         visuals.color = temp;
     }
 
+    private void Ripple()
+    {
+        if (canRipple)
+        {
+            var camera = FindObjectOfType<Camera>();
+            Debug.Log(transform.position);
+            camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
+        }
+        canRipple = false;
+    }
+}
 
-    void LoopManager()
+    /*void LoopManager()
     {
         /*if (fixer == false)
         {
@@ -188,6 +218,6 @@ public class LoopController : MonoBehaviour
             {
                 counter = 0;
             }
-        }*/
+        }
     }
-}
+}*/
