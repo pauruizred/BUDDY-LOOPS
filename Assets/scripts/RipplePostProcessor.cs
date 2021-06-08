@@ -52,6 +52,7 @@ public class RipplePostProcessor : MonoBehaviour
     public void RippleAtPoint(Vector3 position)
     {
         this.Amount = this.MaxAmount;
+        Debug.Log("RIPPLE");
         this.RippleMaterial.SetFloat("_CenterX", position.x);
         this.RippleMaterial.SetFloat("_CenterY", position.y);
     }

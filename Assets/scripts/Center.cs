@@ -13,6 +13,8 @@ public class Center : MonoBehaviour
     public float delayEnding;
     public GameObject linePrefab;
     private GameObject endingline;
+    private ParticleSystem wave;
+
 
     private bool noTurnBack;
     private bool endLevelCalled = false;
@@ -24,6 +26,7 @@ public class Center : MonoBehaviour
         endingline.GetComponent<TrailRenderer>().widthMultiplier = 22f;
         endingline.GetComponent<TrailRenderer>().emitting = false;
         endingline.GetComponent<TrailRenderer>().time = 1;
+        wave = this.GetComponentInChildren<ParticleSystem>();
 
     }
 
@@ -32,6 +35,7 @@ public class Center : MonoBehaviour
     {
         if ((counter == 2) && (Time.timeSinceLevelLoad > waitTime))
         {
+            wave.Play();
             if (endLevelCalled == false){
                 endLevelCalled = true;
                 StartCoroutine("EndLevel");

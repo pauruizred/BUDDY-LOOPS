@@ -44,18 +44,12 @@ public class LoopController : MonoBehaviour
         // Audio
         source = GetComponent<AudioSource>();
         source.volume = 0;
-        // Visuals 
-        //visuals = GetComponentInChildren<SpriteRenderer>();
+        // Visuals
         pGO = this.transform.Find("Continuous ripple").GetComponentInChildren<ParticleSystem>();
         var col = pGO.colorOverLifetime;
         col.color = grad1;
-        oneShotpGO = this.transform.Find("One shot ripple").GetComponentInChildren<ParticleSystem>();
-        var colOneShot = oneShotpGO.colorOverLifetime;
-        colOneShot.color = grad1;
         backgroundMask.SetActive(false);
         GetComponent<Rotate>().enabled = false;
-        //visuals.color = Color.red;
-        //ChangeOpacity(0f);
 
         // Utils
         counter = 0;
@@ -100,13 +94,12 @@ public class LoopController : MonoBehaviour
 
             if ((counter == 2) && (armer == false))
             {
-                fixer = true;
-                //GetComponent<Rotate>().enabled = true;    
+                fixer = true;   
                 var col = pGO.colorOverLifetime;
                 col.color = grad2;
 
-                Debug.Log(transform.position);
-                Ripple();
+           
+                Ripple(this.transform.position);
             }
 
         }
@@ -135,7 +128,6 @@ public class LoopController : MonoBehaviour
         StartCoroutine("FadeInLoop");
         
         if (!pGO.isPlaying) pGO.Play();
-        //visuals.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         backgroundMask.SetActive(true);
 
     }
@@ -146,9 +138,7 @@ public class LoopController : MonoBehaviour
         StartCoroutine("FadeOutLoop");
 
         if (pGO.isPlaying) pGO.Stop();
-        //visuals.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         backgroundMask.SetActive(false);
-        //ChangeOpacity(0f);
 
     }
 
@@ -182,13 +172,16 @@ public class LoopController : MonoBehaviour
         visuals.color = temp;
     }
 
-    private void Ripple()
+    private void Ripple(Vector3 position)
     {
         if (canRipple)
         {
-            var camera = FindObjectOfType<Camera>();
-            Debug.Log(transform.position);
-            camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
+            
+            var cameras = FindObjectsOfType<Camera>();
+            foreach (Camera camera in cameras)
+            {
+                camera.GetComponent<RipplePostProcessor>().RippleAtPoint(position);
+            }
         }
         canRipple = false;
     }
