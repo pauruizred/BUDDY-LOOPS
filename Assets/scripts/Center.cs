@@ -9,11 +9,13 @@ public class Center : MonoBehaviour
     public float waitTime;
     public int nextScene;
     public int waitForNextScene;
+    public float centerMaxSize;
 
     public float delayEnding;
     public GameObject linePrefab;
     private GameObject endingline;
-    private ParticleSystem wave;
+    private ParticleSystem ps;
+    public GameObject sticker;
 
 
     private bool noTurnBack;
@@ -22,11 +24,13 @@ public class Center : MonoBehaviour
     void Start()
     {
         counter = 0;
-        endingline = Instantiate(linePrefab, transform.position + new Vector3(5, 0, 0), Quaternion.identity);
-        endingline.GetComponent<TrailRenderer>().widthMultiplier = 22f;
+        endingline = Instantiate(linePrefab, transform.position + new Vector3(6.3f, 0, 0), Quaternion.identity);
+        endingline.GetComponent<TrailRenderer>().widthMultiplier = 27.5f;
         endingline.GetComponent<TrailRenderer>().emitting = false;
         endingline.GetComponent<TrailRenderer>().time = 1;
-        wave = this.GetComponentInChildren<ParticleSystem>();
+        ps = this.GetComponent<ParticleSystem>();
+        //FadeInSticker();
+        Invoke("WaitTimeExpired", waitTime);
 
     }
 
@@ -35,7 +39,6 @@ public class Center : MonoBehaviour
     {
         if ((counter == 2) && (Time.timeSinceLevelLoad > waitTime))
         {
-            wave.Play();
             if (endLevelCalled == false){
                 endLevelCalled = true;
                 StartCoroutine("EndLevel");
@@ -66,7 +69,25 @@ public class Center : MonoBehaviour
         FindObjectOfType<LoopsMaster>().Finish();
         //Debug.Log("post finish");
         FindObjectOfType<Vinyl>().SetEmission(false);
+        sticker.SetActive(false);
         yield return new WaitForSeconds(waitForNextScene);
         SceneManager.LoadScene(nextScene);
+    }
+    IEnumerator FadeInSticker()
+    {
+        while (sticker.transform.localScale.x < centerMaxSize)
+        {
+            var x = sticker.transform.localScale.x;
+            x += 0.1f;
+
+            var z = sticker.transform.localScale.z;
+            z += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+    }
+    void WaitTimeExpired()
+    {
+        ps.Play();
     }
 }

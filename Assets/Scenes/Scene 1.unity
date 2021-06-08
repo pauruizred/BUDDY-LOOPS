@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counter: 0
   waitTime: 2
-  nextScene: 1
+  nextScene: 0
   waitForNextScene: 3
   centerMaxSize: 12.5
   delayEnding: 5

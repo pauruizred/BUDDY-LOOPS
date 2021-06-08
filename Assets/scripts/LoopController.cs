@@ -99,7 +99,7 @@ public class LoopController : MonoBehaviour
                 col.color = grad2;
 
            
-                Ripple(this.transform.position);
+                Ripple();
             }
 
         }
@@ -127,7 +127,7 @@ public class LoopController : MonoBehaviour
         StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
         
-        if (!pGO.isPlaying) pGO.Play();
+        pGO.Play();
         backgroundMask.SetActive(true);
 
     }
@@ -137,7 +137,7 @@ public class LoopController : MonoBehaviour
         StopCoroutine("FadeInLoop");
         StartCoroutine("FadeOutLoop");
 
-        if (pGO.isPlaying) pGO.Stop();
+        pGO.Stop();
         backgroundMask.SetActive(false);
 
     }
@@ -172,15 +172,15 @@ public class LoopController : MonoBehaviour
         visuals.color = temp;
     }
 
-    private void Ripple(Vector3 position)
+    private void Ripple()
     {
         if (canRipple)
         {
-            
+            Debug.Log(transform.position);
             var cameras = FindObjectsOfType<Camera>();
             foreach (Camera camera in cameras)
             {
-                camera.GetComponent<RipplePostProcessor>().RippleAtPoint(position);
+                camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
             }
         }
         canRipple = false;

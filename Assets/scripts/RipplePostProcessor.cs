@@ -55,5 +55,6 @@ public class RipplePostProcessor : MonoBehaviour
         Debug.Log("RIPPLE");
         this.RippleMaterial.SetFloat("_CenterX", position.x);
         this.RippleMaterial.SetFloat("_CenterY", position.y);
+        Debug.Log(this.transform.position);
     }
 }
