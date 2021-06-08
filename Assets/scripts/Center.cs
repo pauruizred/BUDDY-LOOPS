@@ -11,14 +11,14 @@ public class Center : MonoBehaviour
     public int waitForNextScene;
     public float centerMaxSize;
 
-    public float delayEnding;
+    public float holdingTime;
     public GameObject linePrefab;
     private GameObject endingline;
     private ParticleSystem ps;
     public GameObject sticker;
 
 
-    private bool noTurnBack;
+    public bool noTurnBack = false;
     private bool endLevelCalled = false;
     // Start is called before the first frame update
     void Start()
@@ -60,16 +60,18 @@ public class Center : MonoBehaviour
     {
         //Debug.Log("EndLevel");
         endingline.GetComponent<TrailRenderer>().emitting = true;
-        endingline.GetComponent<TrailRenderer>().time = delayEnding;
-        yield return new WaitForSeconds(delayEnding);
+        endingline.GetComponent<TrailRenderer>().time = holdingTime;
+        yield return new WaitForSeconds(holdingTime);
         noTurnBack = true;
         //Debug.Log("no turn back true");
         endingline.GetComponent<TrailRenderer>().emitting = false;
         //Debug.Log("prefinish");
-        FindObjectOfType<LoopsMaster>().Finish();
+        
         //Debug.Log("post finish");
         FindObjectOfType<Vinyl>().SetEmission(false);
         sticker.SetActive(false);
+        yield return new WaitForSeconds(holdingTime);
+        FindObjectOfType<LoopsMaster>().Finish();
         yield return new WaitForSeconds(waitForNextScene);
         SceneManager.LoadScene(nextScene);
     }

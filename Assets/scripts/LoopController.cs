@@ -69,67 +69,67 @@ public class LoopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Input.mousePosition);
-        if (fixer == false)
+        if (GameObject.Find("Center").GetComponent<Center>().noTurnBack == false)
         {
-            if (counter == 0)
-            {            
-                if (loopActivated == true){
-                    loopActivated=false;
-                    DeactivateLoop();
-                }              
-            }
-            else //(counter > 0)
+            //Debug.Log(Input.mousePosition);
+            if (fixer == false)
             {
-                if (loopActivated == false){
-                    loopActivated=true;
-                    ActivateLoop();
-                }          
-            }
+                if (counter == 0)
+                {
+                    if (loopActivated == true)
+                    {
+                        loopActivated = false;
+                        DeactivateLoop();
+                    }
+                }
+                else //(counter > 0)
+                {
+                    if (loopActivated == false)
+                    {
+                        loopActivated = true;
+                        ActivateLoop();
+                    }
+                }
 
-            if (counter < 2)
-            {
-                armer = false;
-            }
+                if (counter < 2)
+                {
+                    armer = false;
+                }
 
-            if ((counter == 2) && (armer == false))
-            {
-                fixer = true;   
-                var col = pGO.colorOverLifetime;
-                col.color = grad2;
-
-           
-                Ripple();
-            }
-
-        }
-        else //(fixer == true)
-        {
-            if (counter < 2)
-            {
-                armer = true;
+                if ((counter == 2) && (armer == false))
+                {
+                    fixer = true;
+                    var col = pGO.colorOverLifetime;
+                    col.color = grad2;
+                    Ripple();
+                }
 
             }
-
-            if ((counter == 2) && (armer == true))
+            else //(fixer == true)
             {
-                fixer = false;
-                var col = pGO.colorOverLifetime;
-                col.color = grad1;
-                canRipple = true;
+                if (counter < 2)
+                {
+                    armer = true;
+                }
+
+                if ((counter == 2) && (armer == true))
+                {
+                    fixer = false;
+                    var col = pGO.colorOverLifetime;
+                    col.color = grad1;
+                    canRipple = true;
+                }
             }
         }
     }
 
     private void ActivateLoop()
     {
-       
         StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
-        
+
         pGO.Play();
         backgroundMask.SetActive(true);
-
     }
 
     public void DeactivateLoop()
