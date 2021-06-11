@@ -94,14 +94,13 @@ public class LoopController : MonoBehaviour
                 if (counter < 2)
                 {
                     armer = false;
+                    StopCoroutine("Fix");
                 }
 
                 if ((counter == 2) && (armer == false))
                 {
-                    fixer = true;
-                    var col = pGO.colorOverLifetime;
-                    col.color = grad2;
-                    Ripple();
+                    StopCoroutine("Unfix");
+                    StartCoroutine("Fix");
                 }
 
             }
@@ -110,17 +109,34 @@ public class LoopController : MonoBehaviour
                 if (counter < 2)
                 {
                     armer = true;
+                    StopCoroutine("Unfix");
                 }
 
                 if ((counter == 2) && (armer == true))
                 {
-                    fixer = false;
-                    var col = pGO.colorOverLifetime;
-                    col.color = grad1;
-                    canRipple = true;
+                    StopCoroutine("Fix");
+                    StartCoroutine("Unfix");
                 }
             }
         }
+    }
+    IEnumerator Fix()
+    {
+        yield return new WaitForSeconds(startDelay);
+        fixer = true;
+        var col = pGO.colorOverLifetime;
+        col.color = grad2;
+        Ripple();
+    }
+    IEnumerator Unfix()
+    {
+        yield return new WaitForSeconds(startDelay);
+        fixer = false;
+        var col = pGO.colorOverLifetime;
+        col.color = grad1;
+        Ripple();
+        
+        //canRipple = true;
     }
 
     private void ActivateLoop()
@@ -183,6 +199,6 @@ public class LoopController : MonoBehaviour
                 camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
             }
         }
-        canRipple = false;
+        //canRipple = false;
     }
 }
