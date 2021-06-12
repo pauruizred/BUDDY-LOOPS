@@ -73,7 +73,7 @@ public class Center : MonoBehaviour
         endingline.GetComponent<TrailRenderer>().emitting = false;
         FindObjectOfType<Vinyl>().SetEmission(false);
         sticker.SetActive(false);
-        yield return new WaitForSeconds(holdingTime);
+        yield return new WaitForSeconds(holdingTime + 2);
         yield return new WaitForSeconds(waitForNextScene);
         SceneManager.LoadScene(nextScene);
     }
