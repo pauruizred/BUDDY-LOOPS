@@ -9966,7 +9966,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: feb060f736e0a10499a7e63ca2a836e8, type: 3}
+      objectReference: {fileID: 8300000, guid: 684e3c97d4805fb4283d3a193593f844, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10040,7 +10040,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: fda93182a5855e049911908d10e6284a, type: 3}
+      objectReference: {fileID: 8300000, guid: 09e609955f4846c4aaa00d9989bffdc6, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10114,7 +10114,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 4477dc6783ed8484c9465e62c601b79a, type: 3}
+      objectReference: {fileID: 8300000, guid: c6d25e9d6b1358042962e611a72dc5fa, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10200,7 +10200,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: a07def6a505a3314c814b9c97696ed14, type: 3}
+      objectReference: {fileID: 8300000, guid: 8a190f0b5f408ae419e7b159e817d61c, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10349,8 +10349,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37d58aa8bb8466541a52587da9e0dac1, type: 3}
-  m_Color: {r: 0.58960396, g: 0.20671056, b: 0.745283, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b5ad5c8bac350f54b97e0674ca435ca8, type: 3}
+  m_Color: {r: 0.06863358, g: 0.7169812, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10514,7 +10514,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 71c43a0e10833e44392344e369672fdb, type: 3}
+      objectReference: {fileID: 8300000, guid: caec1ebe574e3fc42ae70361e4834af2, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10804,7 +10804,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: fc127508925e27a46920bff41ee9aa89, type: 3}
+      objectReference: {fileID: 8300000, guid: 0cd5670c62a37fe4ea745ffb09b50cef, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -10994,7 +10994,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 8dbdfee5e86091f4fb4836b6a114d272, type: 3}
+      objectReference: {fileID: 8300000, guid: 3b261a74caaff39458de101beefbdd63, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -11147,7 +11147,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 498e19ff4cf8f3e41a4ae629cf9f349d, type: 3}
+      objectReference: {fileID: 8300000, guid: 39b50b8e792569e4890bdb894f5cdf96, type: 3}
     - target: {fileID: 2803384163564949735, guid: 24aca970da037c947a6b8144b7071702,
         type: 3}
       propertyPath: m_RootOrder
@@ -11282,7 +11282,7 @@ MonoBehaviour:
   counter: 0
   waitTime: 40
   holdingTime: 5
-  nextScene: 3
+  nextScene: 0
   waitForNextScene: 5
   noTurnBack: 0
 --- !u!135 &2087290036
