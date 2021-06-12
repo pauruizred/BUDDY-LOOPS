@@ -11,29 +11,18 @@ public class LoopController : MonoBehaviour
     public float startDelay;
 
     // Visuals
-    private SpriteRenderer visuals;
     public Gradient grad1;
     public Gradient grad2;
+
     //public ParticleSystem particles;
-    public GameObject backgroundMask;
-    private Color visualsColor;
-    public ParticleSystem pGO;
-    public ParticleSystem oneShotpGO;
+    private ParticleSystem pGO;
 
     // Utils
     [HideInInspector]
     public int counter;
-    public bool fixer;
-    public bool armer;
-    public float fixingTime;
-    public bool canRipple;
-    public bool loopActivated;
-
-
-    // Other game objects
-    private Vinyl vinyl;
-
-
+    private bool fixer;
+    private bool armer;
+    private bool loopActivated;
 
     // Start is called before the first frame update
     void Start()
@@ -44,49 +33,37 @@ public class LoopController : MonoBehaviour
         // Audio
         source = GetComponent<AudioSource>();
         source.volume = 0;
+
         // Visuals
         pGO = this.transform.Find("Continuous ripple").GetComponentInChildren<ParticleSystem>();
         var col = pGO.colorOverLifetime;
         col.color = grad1;
-        backgroundMask.SetActive(false);
-        GetComponent<Rotate>().enabled = false;
 
         // Utils
         counter = 0;
         fixer = false;
         armer = false;
-        canRipple = true;
-
-        // others
-        vinyl = FindObjectOfType<Vinyl>();
         loopActivated=false;
-
-        if (!oneShotpGO.isPlaying) oneShotpGO.Play();
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
         if (GameObject.Find("Center").GetComponent<Center>().noTurnBack == false)
         {
-            //Debug.Log(Input.mousePosition);
             if (fixer == false)
             {
                 if (counter == 0)
                 {
                     if (loopActivated == true)
                     {
-                        loopActivated = false;
                         DeactivateLoop();
                     }
                 }
-                else //(counter > 0)
+                else //(when counter > 0)
                 {
                     if (loopActivated == false)
                     {
-                        loopActivated = true;
                         ActivateLoop();
                     }
                 }
@@ -104,7 +81,7 @@ public class LoopController : MonoBehaviour
                 }
 
             }
-            else //(fixer == true)
+            else //(when fixer == true)
             {
                 if (counter < 2)
                 {
@@ -135,27 +112,26 @@ public class LoopController : MonoBehaviour
         var col = pGO.colorOverLifetime;
         col.color = grad1;
         Ripple();
-        
-        //canRipple = true;
     }
 
     private void ActivateLoop()
     {
+        loopActivated = true;
+
         StopCoroutine("FadeOutLoop");
         StartCoroutine("FadeInLoop");
 
         pGO.Play();
-        backgroundMask.SetActive(true);
     }
 
     public void DeactivateLoop()
     {
+        loopActivated = false;
+
         StopCoroutine("FadeInLoop");
         StartCoroutine("FadeOutLoop");
 
         pGO.Stop();
-        backgroundMask.SetActive(false);
-
     }
 
     IEnumerator FadeInLoop()
@@ -180,25 +156,14 @@ public class LoopController : MonoBehaviour
     }
 
 
-    // Experimento para hacer fade in de visuals, no implementado de momento
-    private void ChangeOpacity(float newOpacity)
-    {
-        Color temp = visuals.color;
-        temp.a = newOpacity;
-        visuals.color = temp;
-    }
-
+    //modificar si es pot
     private void Ripple()
     {
-        if (canRipple)
+        Debug.Log(transform.position);
+        var cameras = FindObjectsOfType<Camera>();
+        foreach (Camera camera in cameras)
         {
-            Debug.Log(transform.position);
-            var cameras = FindObjectsOfType<Camera>();
-            foreach (Camera camera in cameras)
-            {
-                camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
-            }
+            camera.GetComponent<RipplePostProcessor>().RippleAtPoint(transform.position);
         }
-        //canRipple = false;
     }
 }

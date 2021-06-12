@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RippleMaterial: {fileID: 2100000, guid: 4f9601ca02acf3e4f956d9dedc00e597, type: 2}
   MaxAmount: 40
-  Friction: 0.95
+  Friction: 0.9
 --- !u!1001 &1795266201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RippleMaterial: {fileID: 2100000, guid: 4f9601ca02acf3e4f956d9dedc00e597, type: 2}
   MaxAmount: 40
-  Friction: 0.95
+  Friction: 0.9
 --- !u!1001 &2079210024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1949,8 +1949,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 5
+      scalar: 8
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2699,7 +2699,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3137,7 +3137,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.8009814, b: 0.14528298, a: 0}
+        key0: {r: 1, g: 0.7842259, b: 0, a: 0}
         key1: {r: 1, g: 0.8009814, b: 0.14528298, a: 0.9411765}
         key2: {r: 0, g: 0, b: 0, a: 0.9411765}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3155,7 +3155,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 3662
-        atime2: 45489
+        atime2: 60138
         atime3: 65535
         atime4: 0
         atime5: 0

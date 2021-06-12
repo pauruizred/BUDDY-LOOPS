@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoopsMaster : MonoBehaviour
 {
     public float finalFadeVelocity;
-    public List<LoopController> loops;// = new List<LoopController>();
+    public List<LoopController> loops;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,10 +22,7 @@ public class LoopsMaster : MonoBehaviour
         foreach (LoopController loop in loops)
         {
             loop.fadeVelocity = finalFadeVelocity;
-            if (loop.fixer == true)
-            {
-                loop.DeactivateLoop();
-            }
+            loop.DeactivateLoop();
         }
     }
 
