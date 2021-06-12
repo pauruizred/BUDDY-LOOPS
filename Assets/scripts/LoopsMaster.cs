@@ -5,18 +5,15 @@ using UnityEngine;
 public class LoopsMaster : MonoBehaviour
 {
     public float finalFadeVelocity;
+
+    [HideInInspector]
     public List<LoopController> loops;
-    // Start is called before the first frame update
+
     void Awake()
     {
         loops = new List<LoopController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Finish()
     {
         foreach (LoopController loop in loops)

@@ -74,6 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f98db2a6cdff5104d9d49a1db805c633, type: 2}
     - target: {fileID: 746186707522591664, guid: cd1cb5635f8dbe649adff6525a31cfd3,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 746186707522591664, guid: cd1cb5635f8dbe649adff6525a31cfd3,
+        type: 3}
       propertyPath: m_Name
       value: Blue Player Variant
       objectReference: {fileID: 0}

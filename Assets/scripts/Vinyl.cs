@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class Vinyl : MonoBehaviour
 {
+    //Space
+    public int numberOfLines;
+    public float centerStickerRadius;
 
     private Vector3 center;
     private int radius;
-    public int numberOfLines;
-    public float centerStickerRadius;
+
+    //VinylLines
     public GameObject vinylLinePrefab;
+
     private List<GameObject> vinylLines;
     
-
-
-    // Start is called before the first frame update
     void Start()
     {
         center = transform.position;
@@ -24,23 +25,17 @@ public class Vinyl : MonoBehaviour
         InstantiateLines();
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     private void InstantiateLines()
     {
         for (int i = 1; i <= numberOfLines; i++)
         {
-            Debug.Log(i);
             float xPosOffset = i * (radius / numberOfLines) + centerStickerRadius;
             GameObject vinylLine = Instantiate(vinylLinePrefab, center + new Vector3(xPosOffset, 0, 0), Quaternion.identity);
+            vinylLine.transform.parent = gameObject.transform;
             vinylLines.Add(vinylLine);
         }
     }
+
     public void SetEmission(bool turnon)
     {
         foreach (GameObject vinylLine in vinylLines){

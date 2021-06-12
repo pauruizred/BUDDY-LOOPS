@@ -143,7 +143,6 @@ public class LoopController : MonoBehaviour
             source.volume += fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
-
     }
 
     IEnumerator FadeOutLoop()
@@ -152,9 +151,7 @@ public class LoopController : MonoBehaviour
             source.volume -= fadeVelocity;
             yield return new WaitForSeconds(0.1f);
         }
-
     }
-
 
     //modificar si es pot
     private void Ripple()

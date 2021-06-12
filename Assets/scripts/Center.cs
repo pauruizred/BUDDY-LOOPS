@@ -5,36 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class Center : MonoBehaviour
 {
-    public int counter;
-    public float waitTime;
-    public int nextScene;
-    public int waitForNextScene;
-    public float centerMaxSize;
-
-    public float holdingTime;
+    //Visuals
     public GameObject linePrefab;
+
     private GameObject endingline;
-    private ParticleSystem ps;
+    private ParticleSystem pS;
     public GameObject sticker;
 
+    //Utils
+    [HideInInspector]
+    public int counter;
 
+    public float waitTime;
+    public float holdingTime;
+
+    public int nextScene;
+    public int waitForNextScene;
+
+    [HideInInspector]
     public bool noTurnBack = false;
     private bool endLevelCalled = false;
-    // Start is called before the first frame update
+
     void Start()
     {
+        //Utils
         counter = 0;
+
+        //Visuals
         endingline = Instantiate(linePrefab, transform.position + new Vector3(6.3f, 0, 0), Quaternion.identity);
         endingline.GetComponent<TrailRenderer>().widthMultiplier = 27.5f;
         endingline.GetComponent<TrailRenderer>().emitting = false;
-        endingline.GetComponent<TrailRenderer>().time = 1;
-        ps = this.GetComponent<ParticleSystem>();
-        //FadeInSticker();
+        endingline.transform.parent = gameObject.transform;
+
+        pS = this.GetComponent<ParticleSystem>();
+
         Invoke("WaitTimeExpired", waitTime);
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if ((counter == 2) && (Time.timeSinceLevelLoad > waitTime))
@@ -42,54 +50,35 @@ public class Center : MonoBehaviour
             if (endLevelCalled == false){
                 endLevelCalled = true;
                 StartCoroutine("EndLevel");
-            }
-                
+            }  
         }
         else
         {
             endingline.GetComponent<TrailRenderer>().emitting = false;
-            //endingline.GetComponent<TrailRenderer>().time -= Time.deltaTime;
+
             if (noTurnBack == false) {
                 StopCoroutine("EndLevel");
                 endLevelCalled = false;
             }
-            
         } 
     }
     IEnumerator EndLevel()
     {
-        //Debug.Log("EndLevel");
+        yield return new WaitForSeconds(1);
         endingline.GetComponent<TrailRenderer>().emitting = true;
         endingline.GetComponent<TrailRenderer>().time = holdingTime;
         yield return new WaitForSeconds(holdingTime);
         noTurnBack = true;
-        //Debug.Log("no turn back true");
+        FindObjectOfType<LoopsMaster>().Finish();
         endingline.GetComponent<TrailRenderer>().emitting = false;
-        //Debug.Log("prefinish");
-        
-        //Debug.Log("post finish");
         FindObjectOfType<Vinyl>().SetEmission(false);
         sticker.SetActive(false);
         yield return new WaitForSeconds(holdingTime);
-        FindObjectOfType<LoopsMaster>().Finish();
         yield return new WaitForSeconds(waitForNextScene);
         SceneManager.LoadScene(nextScene);
     }
-    IEnumerator FadeInSticker()
-    {
-        while (sticker.transform.localScale.x < centerMaxSize)
-        {
-            var x = sticker.transform.localScale.x;
-            x += 0.1f;
-
-            var z = sticker.transform.localScale.z;
-            z += 0.1f;
-            yield return new WaitForSeconds(0.1f);
-        }
-        
-    }
     void WaitTimeExpired()
     {
-        ps.Play();
+        pS.Play();
     }
 }
