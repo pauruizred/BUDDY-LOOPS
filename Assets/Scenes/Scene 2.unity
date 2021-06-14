@@ -10592,7 +10592,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: a07def6a505a3314c814b9c97696ed14, type: 3}
+      objectReference: {fileID: 8300000, guid: 3230c9603393dc1479b71dabe1666de3, type: 3}
     - target: {fileID: 2803384163564949735, guid: 3be45cfb811f2d94592f4feb497757f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -11433,7 +11433,7 @@ MonoBehaviour:
   waitTime: 20
   holdingTime: 5
   nextScene: 3
-  waitForNextScene: 5
+  waitForNextScene: 2
   noTurnBack: 0
 --- !u!135 &2087290036
 SphereCollider:

@@ -11363,7 +11363,7 @@ MonoBehaviour:
   waitTime: 40
   holdingTime: 5
   nextScene: 1
-  waitForNextScene: 5
+  waitForNextScene: 2
   noTurnBack: 0
 --- !u!135 &2087290036
 SphereCollider:

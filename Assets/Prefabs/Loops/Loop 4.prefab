@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2803384163564949732}
   - component: {fileID: 1337503047}
   m_Layer: 0
-  m_Name: Loop
+  m_Name: Loop 4
   m_TagString: Loop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,8 +161,8 @@ MonoBehaviour:
   startDelay: 1
   grad1:
     serializedVersion: 2
-    key0: {r: 0.8018868, g: 0.5560468, b: 0.086240605, a: 0}
-    key1: {r: 0.8018868, g: 0.5560468, b: 0.086240605, a: 1}
+    key0: {r: 0.08627448, g: 0.8, b: 0.48529062, a: 0}
+    key1: {r: 0.08627448, g: 0.8, b: 0.48529062, a: 1}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -190,8 +190,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 3
   grad2:
     serializedVersion: 2
-    key0: {r: 1, g: 0.2210024, b: 0, a: 0}
-    key1: {r: 1, g: 0.2210024, b: 0, a: 1}
+    key0: {r: 1, g: 0.71831864, b: 0, a: 0}
+    key1: {r: 1, g: 0.71831864, b: 0, a: 1}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
