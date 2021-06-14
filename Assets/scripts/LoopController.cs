@@ -153,7 +153,6 @@ public class LoopController : MonoBehaviour
         }
     }
 
-    //modificar si es pot
     private void Ripple()
     {
         Debug.Log(transform.position);

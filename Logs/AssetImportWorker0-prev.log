@@ -1,239 +1,122 @@
 Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.4f1 (becced5a802b) revision 12504301'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.1052; Version 2009; 64bit' Language: 'es' Physical Memory: 16149 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MacOS/Unity
+C:\Program Files\Unity\Hub\Editor\2020.2.4f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-/Users/Dani/Desktop/UPF 3º/Interactive systems/BUDDY-LOOPS
+C:/Users/Pau/Documents/GitHub/BUDDY-LOOPS
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51986
-Successfully changed project path to: /Users/Dani/Desktop/UPF 3º/Interactive systems/BUDDY-LOOPS
-/Users/Dani/Desktop/UPF 3º/Interactive systems/BUDDY-LOOPS
+56965
+Successfully changed project path to: C:/Users/Pau/Documents/GitHub/BUDDY-LOOPS
+C:/Users/Pau/Documents/GitHub/BUDDY-LOOPS
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 37.24 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 90.29 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.4f1 (becced5a802b)
-[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /Users/Dani/Desktop/UPF 3º/Interactive systems/BUDDY-LOOPS/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Pau/Documents/GitHub/BUDDY-LOOPS/Assets
 GfxDevice: creating device client; threaded=0
-2021-06-14 19:03:28.312 Unity[6194:162741] Color LCD preferred device: AMD Radeon R9 M370X (high power)
-2021-06-14 19:03:28.312 Unity[6194:162741] Metal devices available: 2
-2021-06-14 19:03:28.312 Unity[6194:162741] 0: AMD Radeon R9 M370X (high power)
-2021-06-14 19:03:28.312 Unity[6194:162741] 1: Intel Iris Pro Graphics (low power)
-2021-06-14 19:03:28.313 Unity[6194:162741] Using device AMD Radeon R9 M370X (high power)
-Initializing Metal device caps: AMD Radeon R9 M370X
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Vendor:   
+    VRAM:     8074 MB
+    Driver:   27.20.100.9466
 Initialize mono
-Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56194
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56884
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000559 seconds.
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 38.37 ms, found 1 plugins.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004140 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 61.98 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.108 seconds
+- Completed reload, in  2.001 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006762 seconds.
+Registered in 0.002948 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 1 plugins.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.198 seconds
+- Completed reload, in  1.644 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launching external process: /Applications/Unity/Hub/Editor/2020.2.4f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
-Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1408 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 118.5 MB.
-System memory in use after: 118.6 MB.
+System memory in use before: 65.2 MB.
+System memory in use after: 65.3 MB.
 
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1841.
-Total: 3.502877 ms (FindLiveObjects: 0.275478 ms CreateObjectMapping: 0.119607 ms MarkObjects: 3.049982 ms  DeleteObjects: 0.055610 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Audios/Level 3 - Jazz/Drums trap.mp3
-  artifactKey: Guid(498e19ff4cf8f3e41a4ae629cf9f349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Drums trap.mp3 using Guid(498e19ff4cf8f3e41a4ae629cf9f349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87f6ba46b111faf095da49f4627559d4') in 0.480095 seconds
-  Import took 0.483588 seconds .
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 1843.
+Total: 1.471700 ms (FindLiveObjects: 0.129600 ms CreateObjectMapping: 0.039800 ms MarkObjects: 1.273800 ms  DeleteObjects: 0.027100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Assets/Audios
-  artifactKey: Guid(91caaccce38ae7a4bb6c4628fd16de53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios using Guid(91caaccce38ae7a4bb6c4628fd16de53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '032fe5263245623ddf9f03f4d4eee283') in 0.000717 seconds
-  Import took 0.002697 seconds .
+  path: Assets/Scripts/LoopController.cs
+  artifactKey: Guid(2bfe7eb587adb634e98e049fa25fe39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/LoopController.cs using Guid(2bfe7eb587adb634e98e049fa25fe39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6826568526ff5f3c62c1555d1f1f414c') in 0.088420 seconds
+  Import took 0.092416 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000329 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bass jazz.mp3
-  artifactKey: Guid(feb060f736e0a10499a7e63ca2a836e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bass jazz.mp3 using Guid(feb060f736e0a10499a7e63ca2a836e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1342969a0b2b5c1d5bf7254e1e39c6ed') in 0.010591 seconds
-  Import took 0.013054 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000261 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Drums jazz.mp3
-  artifactKey: Guid(fc127508925e27a46920bff41ee9aa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Drums jazz.mp3 using Guid(fc127508925e27a46920bff41ee9aa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4318f66781a8b657da47bb9583f1264d') in 0.008644 seconds
-  Import took 0.011306 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000175 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bells Trap.mp3
-  artifactKey: Guid(71c43a0e10833e44392344e369672fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bells Trap.mp3 using Guid(71c43a0e10833e44392344e369672fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6746432f4c8c9870f4a4e4b9471f4cb') in 0.007888 seconds
-  Import took 0.010243 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000233 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bass trap.mp3
-  artifactKey: Guid(4477dc6783ed8484c9465e62c601b79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bass trap.mp3 using Guid(4477dc6783ed8484c9465e62c601b79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13a42260ee6c10c8fcb5626243e578ea') in 0.008917 seconds
-  Import took 0.010917 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Audios/Level 3 - Jazz
-  artifactKey: Guid(d8b914a8d419c654fb268700d83eadce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz using Guid(d8b914a8d419c654fb268700d83eadce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc1aa375f088616afa13954ff097119') in 0.000734 seconds
-  Import took 0.002626 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000164 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Pad Trap.mp3
-  artifactKey: Guid(8dbdfee5e86091f4fb4836b6a114d272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Pad Trap.mp3 using Guid(8dbdfee5e86091f4fb4836b6a114d272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f96656820ba50a0973f31c95de9935b') in 0.008424 seconds
-  Import took 0.010341 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000192 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Piano jazz bueno.mp3
-  artifactKey: Guid(3230c9603393dc1479b71dabe1666de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Piano jazz bueno.mp3 using Guid(3230c9603393dc1479b71dabe1666de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4a59009a1f92e39779a7054e1e576b9') in 0.007662 seconds
-  Import took 0.009859 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000178 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Ride Jazz.mp3
-  artifactKey: Guid(fda93182a5855e049911908d10e6284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Ride Jazz.mp3 using Guid(fda93182a5855e049911908d10e6284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40a1488b4756cb0bb46358babd099d86') in 0.007674 seconds
-  Import took 0.010220 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 87.355548 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bass jazz.mp3
-  artifactKey: Guid(feb060f736e0a10499a7e63ca2a836e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bass jazz.mp3 using Guid(feb060f736e0a10499a7e63ca2a836e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e9d1553b23bf7e60a0e37294f3b94db') in 0.013198 seconds
-  Import took 0.016673 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000190 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Drums trap.mp3
-  artifactKey: Guid(498e19ff4cf8f3e41a4ae629cf9f349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Drums trap.mp3 using Guid(498e19ff4cf8f3e41a4ae629cf9f349d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76e473ac8f641b511db1ef03d1fda412') in 0.010074 seconds
-  Import took 0.012432 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Drums jazz.mp3
-  artifactKey: Guid(fc127508925e27a46920bff41ee9aa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Drums jazz.mp3 using Guid(fc127508925e27a46920bff41ee9aa89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33c07ced21bef5aee7e9e507e857050b') in 0.010706 seconds
-  Import took 0.012859 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000220 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bells trap.mp3
-  artifactKey: Guid(71c43a0e10833e44392344e369672fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bells trap.mp3 using Guid(71c43a0e10833e44392344e369672fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45e6340c6bf2dec2588317ff65f8a5b1') in 0.017683 seconds
-  Import took 0.020537 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000196 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Bass trap.mp3
-  artifactKey: Guid(4477dc6783ed8484c9465e62c601b79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Bass trap.mp3 using Guid(4477dc6783ed8484c9465e62c601b79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb357c47da6abf61f9ce9195354ce40f') in 0.012828 seconds
-  Import took 0.015843 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Pad Trap.mp3
-  artifactKey: Guid(8dbdfee5e86091f4fb4836b6a114d272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Pad Trap.mp3 using Guid(8dbdfee5e86091f4fb4836b6a114d272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff53480c311b12fdde12e8041c7849f') in 0.012383 seconds
-  Import took 0.015315 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000231 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Piano jazz bueno.mp3
-  artifactKey: Guid(3230c9603393dc1479b71dabe1666de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Piano jazz bueno.mp3 using Guid(3230c9603393dc1479b71dabe1666de3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d6fc74f2afe884c68cd07d719282779') in 0.010900 seconds
-  Import took 0.013896 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000298 seconds.
-  path: Assets/Audios/Level 3 - Jazz/Ride Jazz.mp3
-  artifactKey: Guid(fda93182a5855e049911908d10e6284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Level 3 - Jazz/Ride Jazz.mp3 using Guid(fda93182a5855e049911908d10e6284a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ae72cb21d55b628f1c54e19e886a07b') in 0.011755 seconds
-  Import took 0.014768 seconds .
+  Time since last request: 11.107807 seconds.
+  path: Assets/Scripts/LoopController.cs
+  artifactKey: Guid(2bfe7eb587adb634e98e049fa25fe39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/LoopController.cs using Guid(2bfe7eb587adb634e98e049fa25fe39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd496dfe3f374f45321e08a08a8f41451') in 0.003348 seconds
+  Import took 0.006711 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.003428 seconds.
+Registered in 0.003187 seconds.
 Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 1 plugins.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.056 seconds
+- Completed reload, in  1.587 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1401 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 126.5 MB.
-System memory in use after: 126.6 MB.
+System memory in use before: 65.1 MB.
+System memory in use after: 65.2 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1852.
-Total: 2.337574 ms (FindLiveObjects: 0.253714 ms CreateObjectMapping: 0.083656 ms MarkObjects: 1.979890 ms  DeleteObjects: 0.019081 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 1845.
+Total: 3.470600 ms (FindLiveObjects: 0.844300 ms CreateObjectMapping: 0.040900 ms MarkObjects: 2.544800 ms  DeleteObjects: 0.038400 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 28.940713 seconds.
+  path: Assets/Prefabs/Loops/Loop 4.prefab
+  artifactKey: Guid(7df341735d4743b4f8d78194f0c9a775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Loops/Loop 4.prefab using Guid(7df341735d4743b4f8d78194f0c9a775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5d200871a7768c5c33fc97e650e04e0') in 0.067921 seconds
+  Import took 0.072440 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
